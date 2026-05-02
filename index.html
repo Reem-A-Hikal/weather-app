@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=DM+Sans:opsz,wght@9..40,300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Weather app</title>
+  </head>
+  <body>
+    <main>
+      <header class="site-header">
+        <a href="#" class="logo">
+          <img
+            class="icon"
+            src="./assets/images/logo.svg"
+            alt="Weather App Logo"
+          />
+        </a>
+        <button
+          class="units-toggle"
+          aria-label="Units selection"
+          aria-expanded="false"
+        >
+          <img
+            src="./assets/images/icon-units.svg"
+            alt=""
+            class="icon"
+            aria-hidden="true"
+          />
+          <span>Units</span>
+          <img
+            src="./assets/images/icon-dropdown.svg"
+            alt=""
+            class="arrow"
+            aria-hidden="true"
+          />
+        </button>
+        <nav class="units-menu" aria-label="Units menu" hidden>
+          <h2>Switch to Imperial/Metric</h2>
+          <fieldset>
+            <legend>Temperature</legend>
+            <label>
+              <input type="radio" name="temperature" value="celsius" />
+              Celsius (°C)
+            </label>
+            <label>
+              <input type="radio" name="temperature" value="fahrenheit" />
+              Fahrenheit (°F)
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Wind Speed</legend>
+            <label>
+              <input type="radio" name="wind-speed" value="kmh" />
+              km/h
+            </label>
+            <label>
+              <input type="radio" name="wind-speed" value="mph" />
+              mph
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Precipitation</legend>
+            <label>
+              <input type="radio" name="precipitation" value="mm" />
+              Millimeters (mm)
+            </label>
+            <label>
+              <input type="radio" name="precipitation" value="inches" />
+              Inches (in)
+            </label>
+          </fieldset>
+        </nav>
+      </header>
+      <section class="hero" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">How's the sky looking today?</h1>
+        <form class="search" action="#" method="get">
+          <label class="input-group" for="location-search">
+            <img
+              src="./assets/images/icon-search.svg"
+              alt="Search icon"
+              class="icon"
+            />
+            <input
+              id="location-search"
+              name="location"
+              type="search"
+              placeholder="Search for a place..."
+            />
+          </label>
+          <ul class="suggestions hidden">
+            <li>City Name</li>
+            <li>City Name</li>
+            <li>City Name</li>
+            <li>City Name</li>
+          </ul>
+          <button type="submit">Search</button>
+        </form>
+      </section>
+      <section class="weather-summary">
+        <div class="current-weather">
+          <div class="current-weather-details">
+            <h2 class="country">Berlin, Germany</h2>
+            <p class="date">Tuesday, Aug 5, 2025</p>
+          </div>
+          <div class="temp">
+            <img src="./assets/images/icon-sunny.webp" alt="Sunny" />
+            <span>20</span>
+          </div>
+        </div>
+        <div class="weather-metrics">
+          <dl class="metric">
+            <dt>Feels Like</dt>
+            <dd>18</dd>
+          </dl>
+          <dl class="metric">
+            <dt>Humidity</dt>
+            <dd>46%</dd>
+          </dl>
+          <dl class="metric">
+            <dt>Wind</dt>
+            <dd>14</dd>
+          </dl>
+          <dl class="metric">
+            <dt>Precipitation</dt>
+            <dd>0 mm</dd>
+          </dl>
+        </div>
+        <section
+          class="daily-forecast"
+          aria-labelledby="daily-forecast-heading"
+        >
+          <h2 id="daily-forecast-heading">Daily Forecast</h2>
+          <ul class="forecast-list">
+            <li>
+              <span>Tue</span>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <div class="day-details"><span>20</span><span>14</span></div>
+            </li>
+            <li>
+              <span>Tue</span>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <div class="day-details"><span>20</span><span>14</span></div>
+            </li>
+            <li>
+              <span>Tue</span>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <div class="day-details"><span>20</span><span>14</span></div>
+            </li>
+            <li>
+              <span>Tue</span>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <div class="day-details"><span>20</span><span>14</span></div>
+            </li>
+            <li>
+              <span>Tue</span>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <div class="day-details"><span>20</span><span>14</span></div>
+            </li>
+            <li>
+              <span>Tue</span>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <div class="day-details"><span>20</span><span>14</span></div>
+            </li>
+            <li>
+              <span>Tue</span>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <div class="day-details"><span>20</span><span>14</span></div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section
+        class="hourly-forecast"
+        aria-labelledby="hourly-forecast-heading"
+      >
+        <nav aria-label="Hourly forecast navigation">
+          <h2 id="hourly-forecast-heading">Hourly Forecast</h2>
+          <button
+            class="days-toggle"
+            aria-label="Days selection"
+            aria-expanded="false"
+          >
+            <span>Tuesday</span>
+            <img
+              src="./assets/images/icon-dropdown.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+          <ul class="days" hidden>
+            <li>Monday</li>
+            <li>Tuesday</li>
+            <li>Wednesday</li>
+            <li>Thursday</li>
+            <li>Friday</li>
+            <li>Saturday</li>
+            <li>Sunday</li>
+          </ul>
+        </nav>
+        <ul class="hourly-list">
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>3 PM</span>
+            <span>20</span>
+          </li>
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>4 PM</span>
+            <span>20</span>
+          </li>
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>5 PM</span>
+            <span>20</span>
+          </li>
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>6 PM</span>
+            <span>20</span>
+          </li>
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>7 PM</span>
+            <span>20</span>
+          </li>
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>8 PM</span>
+            <span>20</span>
+          </li>
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>9 PM</span>
+            <span>20</span>
+          </li>
+          <li>
+            <img src="./assets/images/icon-rain.webp" alt="Rain" />
+            <span>10 PM</span>
+            <span>20</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
