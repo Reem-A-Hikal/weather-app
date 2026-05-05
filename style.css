@@ -17,17 +17,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 body {
   background-color: var(--bg);
-  font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   color: white;
 }
 
 main {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
 }
 
 header {
@@ -61,6 +62,7 @@ section.hero {
   gap: 2rem;
   color: var(--n0);
   margin-block-end: 2rem;
+  font-family: "Bricolage Grotesque", sans-serif;
 
   #hero-heading {
     font-size: 3.5rem;
@@ -80,6 +82,7 @@ section.hero {
       padding: 1rem 1.5rem;
       border-radius: 0.75rem;
       column-gap: 0.75rem;
+      overflow: hidden;
 
       input#location-search {
         background-color: var(--darkbg);
@@ -108,80 +111,157 @@ section.hero {
   }
 }
 
-section.weather-summary {
-  .current-weather {
-    background: url("./assets/images/bg-today-small.svg") center no-repeat;
-    background-size: cover;
+section.weather-summary .current-weather {
+  background: url("./assets/images/bg-today-small.svg") center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  text-align: center;
+  border-radius: 1.5rem;
+  margin-block-end: 1.25rem;
+
+  .current-weather-details {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2rem 0;
-    text-align: center;
-    border-radius: 1.5rem;
-    margin-block-end: 1.25rem;
+    gap: 0.75rem;
 
-    .current-weather-details {
-      font-family: "DM Sans", sans-serif;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      p {
-        color: var(--c300);
-        font-weight: 400;
-        font-size: 1.25rem;
-      }
+    h2 {
+      font-size: 1.75rem;
     }
 
-    .temp {
-      display: flex;
-      align-items: center;
-
-      img {
-        width: 45%;
-      }
-
-      span {
-        font-size: 7rem;
-      }
+    p {
+      font-size: 1.13rem;
+      color: var(--c300);
     }
   }
 
-  .weather-metrics {
-    font-family: "DM Sans", sans-serif;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-block-end: 2rem;
+  .temp {
+    display: flex;
+    align-items: center;
 
-    .metric {
-      background-color: var(--darkbg);
-      color: var(--c300);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid var(--c600);
+    img {
+      width: 45%;
+    }
 
-      dt {
-        font-weight: 500;
-      }
-
-      dd {
-        font-size: 2rem;
-      }
+    span {
+      font-size: 7rem;
     }
   }
 }
 
-@media (min-width: 1024px) {
-  section.weather-summary .weather-metrics {
-    grid-template-columns: repeat(4, 1fr);
+.weather-metrics {
+  font-family: "DM Sans", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-block-end: 2rem;
+
+  .metric {
+    background-color: var(--darkbg);
+    color: var(--c300);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--c600);
+
+    dd {
+      font-size: 2rem;
+      color: white;
+    }
+  }
+}
+.daily-forecast h2 {
+  font-size: 1.25rem;
+}
+
+.daily-forecast ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+  margin-block-start: 1rem;
+  margin-block-end: 2rem;
+
+  li {
+    background-color: var(--darkbg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--c600);
+    gap: 0.5rem;
+
+    span {
+      display: block;
+    }
+
+    img {
+      width: 85%;
+    }
+
+    .day-details {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1rem;
+    }
+  }
+}
+
+.hourly-forecast {
+  background-color: var(--darkbg);
+  padding: 1rem;
+  border-radius: 1rem;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 1rem;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      color: white;
+      background-color: var(--c600);
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  ul.hourly-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      background-color: var(--c700);
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--c600);
+      font-size: 1rem;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 15%;
+        }
+      }
+    }
   }
 }
 
