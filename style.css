@@ -219,19 +219,28 @@ section.hero {
   }
 }
 
+.largebg {
+  background: url("./assets/images/bg-today-large.svg") center no-repeat;
+  background-size: cover;
+}
+
+.smallbg {
+  background: url("./assets/images/bg-today-small.svg") center no-repeat;
+  background-size: cover;
+}
+
 section.weather-summary .current-weather {
   position: relative;
-  /* background: url("./assets/images/bg-today-small.svg") center no-repeat; */
   background-color: var(--darkbg);
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 2rem 0;
   text-align: center;
   border-radius: 1.5rem;
   margin-block-end: 2rem;
-  height: 260px;
+  min-height: 270px;
 
   .current-weather-details {
     display: flex;
@@ -245,7 +254,7 @@ section.weather-summary .current-weather {
 
     p {
       font-size: 1.13rem;
-      color: var(--c300);
+      color: var(--c200);
     }
   }
 
@@ -253,13 +262,14 @@ section.weather-summary .current-weather {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 50%;
 
     img {
       width: 30%;
     }
 
     span {
-      font-size: 7rem;
+      font-size: 6rem;
     }
   }
 }
@@ -280,10 +290,10 @@ section.weather-summary .current-weather {
     padding: 1rem;
     border-radius: 0.75rem;
     border: 1px solid var(--c600);
-    height: 100px;
+    min-height: 115px;
 
     dd {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: white;
     }
   }
@@ -304,11 +314,12 @@ section.weather-summary .current-weather {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
     padding: 0.75rem;
     border-radius: 0.75rem;
     border: 1px solid var(--c600);
     gap: 0.5rem;
-    height: 165px;
+    min-height: 175px;
 
     span {
       display: block;
@@ -403,7 +414,7 @@ section.weather-summary .current-weather {
       border-radius: 0.75rem;
       border: 1px solid var(--c600);
       font-size: 1rem;
-      height: 70px;
+      min-height: 65px;
 
       img {
         width: 15%;
@@ -416,8 +427,7 @@ section.weather-summary .current-weather {
   }
 }
 
-.error,
-.initial-state {
+.error {
   font-family: "bricolage grotesque", sans-serif;
   font-size: 1.5rem;
   text-align: center;
@@ -538,8 +548,7 @@ section.weather-summary .current-weather {
   section.weather-summary .current-weather {
     flex-direction: row;
     justify-content: space-between;
-    padding: 4.7rem 2rem;
-    /* background: url("./assets/images/bg-today-large.svg") center no-repeat; */
+    padding: 5.15rem 2rem;
     background-size: cover;
 
     .current-weather-details {

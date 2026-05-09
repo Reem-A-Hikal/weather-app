@@ -53,11 +53,11 @@
           />
         </button>
         <nav class="units-menu" aria-label="Units menu" hidden>
-          <button>Switch to Imperial</button>
+          <button class="changeUnits">Switch to Imperial</button>
           <fieldset>
             <legend>Temperature</legend>
             <label>
-              <input type="radio" name="temperature" value="celsius" />
+              <input type="radio" name="temperature" value="celsius" checked />
               Celsius (°C)
               <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
@@ -70,7 +70,7 @@
           <fieldset>
             <legend>Wind Speed</legend>
             <label>
-              <input type="radio" name="wind-speed" value="kmh" />
+              <input type="radio" name="wind-speed" value="kmh" checked />
               km/h
               <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
@@ -83,13 +83,13 @@
           <fieldset>
             <legend>Precipitation</legend>
             <label>
-              <input type="radio" name="precipitation" value="mm" />
+              <input type="radio" name="precipitation" value="mm" checked />
               Millimeters (mm)
               <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
             <label>
-              <input type="radio" name="precipitation" value="inches" />
-              Inches (in)
+              <input type="radio" name="precipitation" value="inch" />
+              Inch (in)
               <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
           </fieldset>
@@ -109,6 +109,7 @@
               class="search-input"
               name="location"
               type="search"
+              autocomplete="off"
               placeholder="Search for a place..."
             />
           </label>
@@ -121,10 +122,6 @@
           <button class="search-button" type="submit">Search</button>
         </form>
       </section>
-
-      <div class="initial-state">
-        <p>Search for a location to see the weather</p>
-      </div>
       <div class="error" hidden>
         <p class="error-message">No search result found!</p>
       </div>
@@ -140,28 +137,28 @@
               <p>Loading...</p>
             </div>
             <div class="current-weather-details">
-              <h2 class="country"></h2>
+              <h2 class="country">&nbsp;</h2>
               <p class="date"></p>
             </div>
             <div class="temp">
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
+              <img src="" alt="" />
+              <span class="value"></span>
             </div>
           </div>
           <div class="weather-metrics">
-            <dl class="metric">
+            <dl class="metric apparent-temp">
               <dt>Feels Like</dt>
               <dd>-</dd>
             </dl>
-            <dl class="metric">
+            <dl class="metric humidity">
               <dt>Humidity</dt>
               <dd>-</dd>
             </dl>
-            <dl class="metric">
+            <dl class="metric wind-speed">
               <dt>Wind Speed</dt>
               <dd>-</dd>
             </dl>
-            <dl class="metric">
+            <dl class="metric precipitation">
               <dt>Precipitation</dt>
               <dd>-</dd>
             </dl>
@@ -172,41 +169,13 @@
           >
             <h2 id="daily-forecast-heading">Daily Forecast</h2>
             <ul class="forecast-list">
-              <li>
-                <span></span>
-                <img src="./assets/images/icon-" alt="" />
-                <div class="day-details"><span></span><span></span></div>
-              </li>
-              <li>
-                <span></span>
-                <img src="./assets/images/icon-" alt="" />
-                <div class="day-details"><span></span><span></span></div>
-              </li>
-              <li>
-                <span></span>
-                <img src="./assets/images/icon-" alt="" />
-                <div class="day-details"><span></span><span></span></div>
-              </li>
-              <li>
-                <span></span>
-                <img src="./assets/images/icon-" alt="" />
-                <div class="day-details"><span></span><span></span></div>
-              </li>
-              <li>
-                <span></span>
-                <img src="./assets/images/icon-" alt="" />
-                <div class="day-details"><span></span><span></span></div>
-              </li>
-              <li>
-                <span></span>
-                <img src="./assets/images/icon-" alt="" />
-                <div class="day-details"><span></span><span></span></div>
-              </li>
-              <li>
-                <span></span>
-                <img src="./assets/images/icon-" alt="" />
-                <div class="day-details"><span></span><span></span></div>
-              </li>
+              <li class="day"></li>
+              <li class="day"></li>
+              <li class="day"></li>
+              <li class="day"></li>
+              <li class="day"></li>
+              <li class="day"></li>
+              <li class="day"></li>
             </ul>
           </section>
         </section>
@@ -229,51 +198,24 @@
               />
             </button>
             <ul class="days-menu" hidden>
-              <li><button type="button">Monday</button></li>
-              <li><button type="button">Tuesday</button></li>
-              <li><button type="button">Wednesday</button></li>
-              <li><button type="button">Thursday</button></li>
-              <li><button type="button">Friday</button></li>
-              <li><button type="button">Saturday</button></li>
-              <li><button type="button">Sunday</button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
             </ul>
           </nav>
           <ul class="hourly-list">
-            <li>
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
-              <span></span>
-            </li>
-            <li>
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
-              <span></span>
-            </li>
-            <li>
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
-              <span></span>
-            </li>
-            <li>
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
-              <span></span>
-            </li>
-            <li>
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
-              <span></span>
-            </li>
-            <li>
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
-              <span></span>
-            </li>
-            <li>
-              <img src="./assets/images/icon-" alt="" />
-              <span></span>
-              <span></span>
-            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
         </section>
       </div>
