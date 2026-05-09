@@ -53,16 +53,18 @@
           />
         </button>
         <nav class="units-menu" aria-label="Units menu" hidden>
-          <h2>Switch to Imperial/Metric</h2>
+          <button>Switch to Imperial</button>
           <fieldset>
             <legend>Temperature</legend>
             <label>
               <input type="radio" name="temperature" value="celsius" />
               Celsius (°C)
+              <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
             <label>
               <input type="radio" name="temperature" value="fahrenheit" />
               Fahrenheit (°F)
+              <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
           </fieldset>
           <fieldset>
@@ -70,10 +72,12 @@
             <label>
               <input type="radio" name="wind-speed" value="kmh" />
               km/h
+              <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
             <label>
               <input type="radio" name="wind-speed" value="mph" />
               mph
+              <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
           </fieldset>
           <fieldset>
@@ -81,10 +85,12 @@
             <label>
               <input type="radio" name="precipitation" value="mm" />
               Millimeters (mm)
+              <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
             <label>
               <input type="radio" name="precipitation" value="inches" />
               Inches (in)
+              <img src="./assets/images/icon-checkmark.svg" alt="" />
             </label>
           </fieldset>
         </nav>
@@ -114,166 +120,154 @@
           <button type="submit">Search</button>
         </form>
       </section>
-      <section class="weather-summary">
-        <div class="current-weather">
-          <div class="current-weather-details">
-            <h2 class="country">Berlin, Germany</h2>
-            <p class="date">Tuesday, Aug 5, 2025</p>
+      <div class="weather-container">
+        <section class="weather-summary">
+          <div class="current-weather">
+            <div class="current-weather-details">
+              <h2 class="country">Berlin, Germany</h2>
+              <p class="date">Tuesday, Aug 5, 2025</p>
+            </div>
+            <div class="temp">
+              <img src="./assets/images/icon-sunny.webp" alt="Sunny" />
+              <span>20</span>
+            </div>
           </div>
-          <div class="temp">
-            <img src="./assets/images/icon-sunny.webp" alt="Sunny" />
-            <span>20</span>
+          <div class="weather-metrics">
+            <dl class="metric">
+              <dt>Feels Like</dt>
+              <dd>18</dd>
+            </dl>
+            <dl class="metric">
+              <dt>Humidity</dt>
+              <dd>46%</dd>
+            </dl>
+            <dl class="metric">
+              <dt>Wind</dt>
+              <dd>14</dd>
+            </dl>
+            <dl class="metric">
+              <dt>Precipitation</dt>
+              <dd>0 mm</dd>
+            </dl>
           </div>
-        </div>
-        <div class="weather-metrics">
-          <dl class="metric">
-            <dt>Feels Like</dt>
-            <dd>18</dd>
-          </dl>
-          <dl class="metric">
-            <dt>Humidity</dt>
-            <dd>46%</dd>
-          </dl>
-          <dl class="metric">
-            <dt>Wind</dt>
-            <dd>14</dd>
-          </dl>
-          <dl class="metric">
-            <dt>Precipitation</dt>
-            <dd>0 mm</dd>
-          </dl>
-        </div>
+          <section
+            class="daily-forecast"
+            aria-labelledby="daily-forecast-heading"
+          >
+            <h2 id="daily-forecast-heading">Daily Forecast</h2>
+            <ul class="forecast-list">
+              <li>
+                <span>Tue</span>
+                <img src="./assets/images/icon-rain.webp" alt="Rain" />
+                <div class="day-details"><span>20</span><span>14</span></div>
+              </li>
+              <li>
+                <span>Tue</span>
+                <img src="./assets/images/icon-rain.webp" alt="Rain" />
+                <div class="day-details"><span>20</span><span>14</span></div>
+              </li>
+              <li>
+                <span>Tue</span>
+                <img src="./assets/images/icon-rain.webp" alt="Rain" />
+                <div class="day-details"><span>20</span><span>14</span></div>
+              </li>
+              <li>
+                <span>Tue</span>
+                <img src="./assets/images/icon-rain.webp" alt="Rain" />
+                <div class="day-details"><span>20</span><span>14</span></div>
+              </li>
+              <li>
+                <span>Tue</span>
+                <img src="./assets/images/icon-rain.webp" alt="Rain" />
+                <div class="day-details"><span>20</span><span>14</span></div>
+              </li>
+              <li>
+                <span>Tue</span>
+                <img src="./assets/images/icon-rain.webp" alt="Rain" />
+                <div class="day-details"><span>20</span><span>14</span></div>
+              </li>
+              <li>
+                <span>Tue</span>
+                <img src="./assets/images/icon-rain.webp" alt="Rain" />
+                <div class="day-details"><span>20</span><span>14</span></div>
+              </li>
+            </ul>
+          </section>
+        </section>
         <section
-          class="daily-forecast"
-          aria-labelledby="daily-forecast-heading"
+          class="hourly-forecast"
+          aria-labelledby="hourly-forecast-heading"
         >
-          <h2 id="daily-forecast-heading">Daily Forecast</h2>
-          <ul class="forecast-list">
+          <nav aria-label="Hourly forecast navigation">
+            <h2 id="hourly-forecast-heading">Hourly Forecast</h2>
+            <button
+              class="days-toggle"
+              aria-label="Days selection"
+              aria-expanded="false"
+            >
+              <span>Tuesday</span>
+              <img
+                src="./assets/images/icon-dropdown.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+            <ul class="days-menu" hidden>
+              <li><button type="button">Monday</button></li>
+              <li><button type="button">Tuesday</button></li>
+              <li><button type="button">Wednesday</button></li>
+              <li><button type="button">Thursday</button></li>
+              <li><button type="button">Friday</button></li>
+              <li><button type="button">Saturday</button></li>
+              <li><button type="button">Sunday</button></li>
+            </ul>
+          </nav>
+          <ul class="hourly-list">
             <li>
-              <span>Tue</span>
               <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <div class="day-details"><span>20</span><span>14</span></div>
+              <span>3 PM</span>
+              <span>20</span>
             </li>
             <li>
-              <span>Tue</span>
               <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <div class="day-details"><span>20</span><span>14</span></div>
+              <span>4 PM</span>
+              <span>20</span>
             </li>
             <li>
-              <span>Tue</span>
               <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <div class="day-details"><span>20</span><span>14</span></div>
+              <span>3 PM</span>
+              <span>20</span>
             </li>
             <li>
-              <span>Tue</span>
               <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <div class="day-details"><span>20</span><span>14</span></div>
+              <span>3 PM</span>
+              <span>20</span>
             </li>
             <li>
-              <span>Tue</span>
               <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <div class="day-details"><span>20</span><span>14</span></div>
+              <span>3 PM</span>
+              <span>20</span>
             </li>
             <li>
-              <span>Tue</span>
               <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <div class="day-details"><span>20</span><span>14</span></div>
+              <span>3 PM</span>
+              <span>20</span>
             </li>
             <li>
-              <span>Tue</span>
               <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <div class="day-details"><span>20</span><span>14</span></div>
+              <span>3 PM</span>
+              <span>20</span>
+            </li>
+            <li>
+              <img src="./assets/images/icon-rain.webp" alt="Rain" />
+              <span>3 PM</span>
+              <span>20</span>
             </li>
           </ul>
         </section>
-      </section>
-      <section
-        class="hourly-forecast"
-        aria-labelledby="hourly-forecast-heading"
-      >
-        <nav aria-label="Hourly forecast navigation">
-          <h2 id="hourly-forecast-heading">Hourly Forecast</h2>
-          <button
-            class="days-toggle"
-            aria-label="Days selection"
-            aria-expanded="false"
-          >
-            <span>Tuesday</span>
-            <img
-              src="./assets/images/icon-dropdown.svg"
-              alt=""
-              aria-hidden="true"
-            />
-          </button>
-          <ul class="days" hidden>
-            <li>Monday</li>
-            <li>Tuesday</li>
-            <li>Wednesday</li>
-            <li>Thursday</li>
-            <li>Friday</li>
-            <li>Saturday</li>
-            <li>Sunday</li>
-          </ul>
-        </nav>
-        <ul class="hourly-list">
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>4 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-          <li>
-            <div>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-            </div>
-            <span>20</span>
-          </li>
-        </ul>
-      </section>
+      </div>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>

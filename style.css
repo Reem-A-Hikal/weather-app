@@ -32,6 +32,7 @@ main {
 }
 
 header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +42,7 @@ header {
     width: 75%;
   }
 
-  button {
+  button.units-toggle {
     padding: 0.6rem 0.75rem;
     border-radius: 0.5rem;
     color: white;
@@ -51,6 +52,96 @@ header {
     align-items: center;
     gap: 0.35rem;
     font-size: 1rem;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 2px solid var(--c300);
+    }
+  }
+
+  nav {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background-color: var(--darkbg);
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid var(--c600);
+    min-width: 190px;
+    z-index: 999;
+
+    button {
+      width: 100%;
+      padding: 0.5rem;
+      color: white;
+      text-align: start;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--c700);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--c300);
+      }
+    }
+
+    fieldset {
+      border: none;
+      border-bottom: 1px solid var(--c600);
+      margin-block-start: 0.5rem;
+      font-size: 0.75rem;
+
+      legend {
+        color: var(--c300);
+        padding-inline-start: 0.5rem;
+        padding-block-end: 0.5rem;
+      }
+
+      label {
+        display: flex;
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        margin-block-end: 0.25rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+
+        input[type="radio"] {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+        }
+
+        img {
+          margin-inline-start: auto;
+          display: none;
+        }
+
+        input[type="radio"]:checked ~ img {
+          display: block;
+        }
+      }
+
+      label:has(input:checked) {
+        background-color: var(--c700);
+      }
+
+      label:has(input:focus-visible) {
+        outline: 1px solid var(--c300);
+      }
+    }
+
+    fieldset:last-child {
+      border: none;
+    }
   }
 }
 
@@ -61,7 +152,7 @@ section.hero {
   justify-content: center;
   gap: 2rem;
   color: var(--n0);
-  margin-block-end: 2rem;
+  margin-block-end: 3rem;
   font-family: "Bricolage Grotesque", sans-serif;
 
   #hero-heading {
@@ -83,20 +174,26 @@ section.hero {
       border-radius: 0.75rem;
       column-gap: 0.75rem;
       overflow: hidden;
+      cursor: pointer;
 
       input#location-search {
+        width: 100%;
         background-color: var(--darkbg);
         border: 0;
         font-size: 1.25rem;
         color: var(--c300);
 
         &:focus {
-          outline: 2px solid var(--blue-500);
+          outline: none;
         }
 
         &::placeholder {
           color: var(--c300);
         }
+      }
+      &:focus-within {
+        outline-offset: 2px;
+        outline: 2px solid var(--c300);
       }
     }
 
@@ -107,6 +204,17 @@ section.hero {
       color: var(--n0);
       border: none;
       border-radius: 0.75rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--Blue-700);
+      }
+
+      &:focus-visible {
+        outline-offset: 2px;
+        outline: 2px solid var(--blue-500);
+      }
     }
   }
 }
@@ -120,12 +228,13 @@ section.weather-summary .current-weather {
   padding: 2rem 0;
   text-align: center;
   border-radius: 1.5rem;
-  margin-block-end: 1.25rem;
+  margin-block-end: 2rem;
 
   .current-weather-details {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    width: 100%;
 
     h2 {
       font-size: 1.75rem;
@@ -140,9 +249,10 @@ section.weather-summary .current-weather {
   .temp {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     img {
-      width: 45%;
+      width: 30%;
     }
 
     span {
@@ -156,7 +266,7 @@ section.weather-summary .current-weather {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
-  margin-block-end: 2rem;
+  margin-block-end: 3rem;
 
   .metric {
     background-color: var(--darkbg);
@@ -217,7 +327,9 @@ section.weather-summary .current-weather {
   background-color: var(--darkbg);
   padding: 1rem;
   border-radius: 1rem;
+
   nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -227,7 +339,7 @@ section.weather-summary .current-weather {
       font-size: 1.25rem;
     }
 
-    button {
+    button.days-toggle {
       padding: 0.6rem 1rem;
       border-radius: 0.5rem;
       color: white;
@@ -236,6 +348,36 @@ section.weather-summary .current-weather {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    ul.days-menu {
+      position: absolute;
+      top: 120%;
+      right: 0;
+      background-color: var(--darkbg);
+      border-radius: 0.5rem;
+      padding: 0.3rem;
+      border: 1px solid var(--c600);
+      min-width: 190px;
+      z-index: 1000;
+
+      li button {
+        width: 100%;
+        padding: 0.5rem;
+        margin-block-end: 0.25rem;
+        background-color: transparent;
+        text-align: start;
+        font-size: 0.9rem;
+        color: white;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--c700);
+        }
+      }
     }
   }
 
@@ -253,13 +395,12 @@ section.weather-summary .current-weather {
       border: 1px solid var(--c600);
       font-size: 1rem;
 
-      div {
-        display: flex;
-        align-items: center;
+      img {
+        width: 15%;
+      }
 
-        img {
-          width: 15%;
-        }
+      span:last-child {
+        margin-inline-start: auto;
       }
     }
   }
@@ -267,4 +408,81 @@ section.weather-summary .current-weather {
 
 .hidden {
   display: none;
+}
+
+@media (min-width: 600px) {
+  main {
+    padding: 3rem 6rem;
+  }
+
+  section.hero form {
+    flex-direction: row;
+
+    label.input-group {
+      min-width: 50%;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  section.hero form button {
+    padding: 1rem 2rem;
+  }
+
+  .weather-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    section.weather-summary {
+      flex: 1 0 50%;
+    }
+
+    .daily-forecast ul {
+      margin-block-end: 0;
+    }
+
+    .hourly-forecast {
+      flex: 0 1 30%;
+      min-width: 270px;
+
+      & h2 {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  section.hero form {
+    width: 86%;
+  }
+
+  .weather-container {
+    gap: 2rem;
+
+    .hourly-forecast {
+      min-width: 310px;
+
+      & h2 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  section.weather-summary .current-weather {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4.7rem 2rem;
+    background: url("./assets/images/bg-today-large.svg") center no-repeat;
+    background-size: cover;
+
+    .current-weather-details {
+      align-items: flex-start;
+    }
+
+    .temp {
+      justify-content: flex-end;
+    }
+  }
 }
