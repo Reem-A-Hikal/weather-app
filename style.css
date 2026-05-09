@@ -220,7 +220,9 @@ section.hero {
 }
 
 section.weather-summary .current-weather {
-  background: url("./assets/images/bg-today-small.svg") center no-repeat;
+  position: relative;
+  /* background: url("./assets/images/bg-today-small.svg") center no-repeat; */
+  background-color: var(--darkbg);
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -229,6 +231,7 @@ section.weather-summary .current-weather {
   text-align: center;
   border-radius: 1.5rem;
   margin-block-end: 2rem;
+  height: 260px;
 
   .current-weather-details {
     display: flex;
@@ -277,6 +280,7 @@ section.weather-summary .current-weather {
     padding: 1rem;
     border-radius: 0.75rem;
     border: 1px solid var(--c600);
+    height: 100px;
 
     dd {
       font-size: 2rem;
@@ -304,6 +308,7 @@ section.weather-summary .current-weather {
     border-radius: 0.75rem;
     border: 1px solid var(--c600);
     gap: 0.5rem;
+    height: 165px;
 
     span {
       display: block;
@@ -349,6 +354,10 @@ section.weather-summary .current-weather {
       align-items: center;
       gap: 0.5rem;
       cursor: pointer;
+
+      span {
+        font-size: 1rem;
+      }
     }
 
     ul.days-menu {
@@ -394,6 +403,7 @@ section.weather-summary .current-weather {
       border-radius: 0.75rem;
       border: 1px solid var(--c600);
       font-size: 1rem;
+      height: 70px;
 
       img {
         width: 15%;
@@ -406,13 +416,68 @@ section.weather-summary .current-weather {
   }
 }
 
-.hidden {
-  display: none;
+.error,
+.initial-state {
+  font-family: "bricolage grotesque", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.5s ease-in-out;
+
+  p {
+    font-family: "bricolage grotesque", sans-serif;
+    font-size: 1.25rem;
+  }
+}
+
+.loading-dots span {
+  display: inline-block;
+  font-size: 2rem;
+  animation: bounce 1s infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.hidden {
+  display: none !important;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--c700) 25%,
+    var(--c600) 50%,
+    var(--c700) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem;
+}
+
+/* Media Queries */
 @media (min-width: 600px) {
   main {
-    padding: 3rem 6rem;
+    padding: 2.5rem 5rem;
   }
 
   section.hero form {
@@ -474,7 +539,7 @@ section.weather-summary .current-weather {
     flex-direction: row;
     justify-content: space-between;
     padding: 4.7rem 2rem;
-    background: url("./assets/images/bg-today-large.svg") center no-repeat;
+    /* background: url("./assets/images/bg-today-large.svg") center no-repeat; */
     background-size: cover;
 
     .current-weather-details {
@@ -484,5 +549,52 @@ section.weather-summary .current-weather {
     .temp {
       justify-content: flex-end;
     }
+  }
+}
+
+@media (--prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+
+  .loading-dots span {
+    animation: none;
+  }
+
+  .skeleton {
+    background: var(--c700);
+    animation: none;
+  }
+}
+
+/* Animations */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-12px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

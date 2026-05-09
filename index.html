@@ -97,7 +97,7 @@
       </header>
       <section class="hero" aria-labelledby="hero-heading">
         <h1 id="hero-heading">How's the sky looking today?</h1>
-        <form class="search" action="#" method="get">
+        <form class="search-form" action="#" method="get">
           <label class="input-group" for="location-search">
             <img
               src="./assets/images/icon-search.svg"
@@ -106,6 +106,7 @@
             />
             <input
               id="location-search"
+              class="search-input"
               name="location"
               type="search"
               placeholder="Search for a place..."
@@ -117,37 +118,52 @@
             <li>City Name</li>
             <li>City Name</li>
           </ul>
-          <button type="submit">Search</button>
+          <button class="search-button" type="submit">Search</button>
         </form>
       </section>
-      <div class="weather-container">
+
+      <div class="initial-state">
+        <p>Search for a location to see the weather</p>
+      </div>
+      <div class="error" hidden>
+        <p class="error-message">No search result found!</p>
+      </div>
+      <div class="weather-container" hidden>
         <section class="weather-summary">
           <div class="current-weather">
+            <div class="loading" hidden>
+              <div class="loading-dots">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+              </div>
+              <p>Loading...</p>
+            </div>
             <div class="current-weather-details">
-              <h2 class="country">Berlin, Germany</h2>
-              <p class="date">Tuesday, Aug 5, 2025</p>
+              <h2 class="country"></h2>
+              <p class="date"></p>
             </div>
             <div class="temp">
-              <img src="./assets/images/icon-sunny.webp" alt="Sunny" />
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
             </div>
           </div>
           <div class="weather-metrics">
             <dl class="metric">
               <dt>Feels Like</dt>
-              <dd>18</dd>
+              <dd>-</dd>
             </dl>
             <dl class="metric">
               <dt>Humidity</dt>
-              <dd>46%</dd>
+              <dd>-</dd>
             </dl>
             <dl class="metric">
-              <dt>Wind</dt>
-              <dd>14</dd>
+              <dt>Wind Speed</dt>
+              <dd>-</dd>
             </dl>
             <dl class="metric">
               <dt>Precipitation</dt>
-              <dd>0 mm</dd>
+              <dd>-</dd>
             </dl>
           </div>
           <section
@@ -157,39 +173,39 @@
             <h2 id="daily-forecast-heading">Daily Forecast</h2>
             <ul class="forecast-list">
               <li>
-                <span>Tue</span>
-                <img src="./assets/images/icon-rain.webp" alt="Rain" />
-                <div class="day-details"><span>20</span><span>14</span></div>
+                <span></span>
+                <img src="./assets/images/icon-" alt="" />
+                <div class="day-details"><span></span><span></span></div>
               </li>
               <li>
-                <span>Tue</span>
-                <img src="./assets/images/icon-rain.webp" alt="Rain" />
-                <div class="day-details"><span>20</span><span>14</span></div>
+                <span></span>
+                <img src="./assets/images/icon-" alt="" />
+                <div class="day-details"><span></span><span></span></div>
               </li>
               <li>
-                <span>Tue</span>
-                <img src="./assets/images/icon-rain.webp" alt="Rain" />
-                <div class="day-details"><span>20</span><span>14</span></div>
+                <span></span>
+                <img src="./assets/images/icon-" alt="" />
+                <div class="day-details"><span></span><span></span></div>
               </li>
               <li>
-                <span>Tue</span>
-                <img src="./assets/images/icon-rain.webp" alt="Rain" />
-                <div class="day-details"><span>20</span><span>14</span></div>
+                <span></span>
+                <img src="./assets/images/icon-" alt="" />
+                <div class="day-details"><span></span><span></span></div>
               </li>
               <li>
-                <span>Tue</span>
-                <img src="./assets/images/icon-rain.webp" alt="Rain" />
-                <div class="day-details"><span>20</span><span>14</span></div>
+                <span></span>
+                <img src="./assets/images/icon-" alt="" />
+                <div class="day-details"><span></span><span></span></div>
               </li>
               <li>
-                <span>Tue</span>
-                <img src="./assets/images/icon-rain.webp" alt="Rain" />
-                <div class="day-details"><span>20</span><span>14</span></div>
+                <span></span>
+                <img src="./assets/images/icon-" alt="" />
+                <div class="day-details"><span></span><span></span></div>
               </li>
               <li>
-                <span>Tue</span>
-                <img src="./assets/images/icon-rain.webp" alt="Rain" />
-                <div class="day-details"><span>20</span><span>14</span></div>
+                <span></span>
+                <img src="./assets/images/icon-" alt="" />
+                <div class="day-details"><span></span><span></span></div>
               </li>
             </ul>
           </section>
@@ -205,7 +221,7 @@
               aria-label="Days selection"
               aria-expanded="false"
             >
-              <span>Tuesday</span>
+              <span>-</span>
               <img
                 src="./assets/images/icon-dropdown.svg"
                 alt=""
@@ -224,44 +240,39 @@
           </nav>
           <ul class="hourly-list">
             <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
+              <span></span>
             </li>
             <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>4 PM</span>
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
+              <span></span>
             </li>
             <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
+              <span></span>
             </li>
             <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
+              <span></span>
             </li>
             <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
+              <span></span>
             </li>
             <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
+              <span></span>
             </li>
             <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-              <span>20</span>
-            </li>
-            <li>
-              <img src="./assets/images/icon-rain.webp" alt="Rain" />
-              <span>3 PM</span>
-              <span>20</span>
+              <img src="./assets/images/icon-" alt="" />
+              <span></span>
+              <span></span>
             </li>
           </ul>
         </section>
