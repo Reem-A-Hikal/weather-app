@@ -53,7 +53,7 @@
           />
         </button>
         <nav class="units-menu" aria-label="Units menu" hidden>
-          <button class="changeUnits">Switch to Imperial</button>
+          <button class="changeUnits"></button>
           <fieldset>
             <legend>Temperature</legend>
             <label>
@@ -112,20 +112,22 @@
               autocomplete="off"
               placeholder="Search for a place..."
             />
+            <ul class="suggestions" hidden></ul>
           </label>
-          <ul class="suggestions hidden">
-            <li>City Name</li>
-            <li>City Name</li>
-            <li>City Name</li>
-            <li>City Name</li>
-          </ul>
-          <button class="search-button" type="submit">Search</button>
+          <button
+            class="search-button"
+            type="submit"
+            disabled
+            aria-disabled="true"
+          >
+            Search
+          </button>
         </form>
       </section>
       <div class="error" hidden>
         <p class="error-message">No search result found!</p>
       </div>
-      <div class="weather-container" hidden>
+      <div class="weather-container">
         <section class="weather-summary">
           <div class="current-weather">
             <div class="loading" hidden>
