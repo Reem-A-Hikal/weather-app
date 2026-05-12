@@ -27,7 +27,7 @@ const errorMessage = document.querySelector(".error-message");
 
 let debounceTimer;
 
-unitsToggle.addEventListener("click", (e) => {
+unitsToggle.addEventListener("click", () => {
   const isHidden = unitsMenu.hasAttribute("hidden");
   unitsMenu.toggleAttribute("hidden");
   unitsToggle.setAttribute("aria-expanded", isHidden ? "true" : "false");
@@ -74,8 +74,8 @@ function clearSuggestions() {
   suggestionsMenu.setAttribute("hidden", "");
 }
 
-function renderSuggestions(suggestions) {
-  suggestionsMenu.innerHTML = suggestions
+function renderSuggestions(suggs) {
+  suggestionsMenu.innerHTML = suggs
     .map(
       (suggestion) =>
         `<li><button type="button">${suggestion.name}, ${suggestion.country}</button></li>`,
@@ -84,7 +84,7 @@ function renderSuggestions(suggestions) {
   suggestionsMenu.removeAttribute("hidden");
 }
 
-searchInput.addEventListener("input", (e) => {
+searchInput.addEventListener("input", () => {
   const query = searchInput.value.trim().toLowerCase();
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(() => {
@@ -100,7 +100,7 @@ const selectSuggestion = (element, index) => {
   clearSuggestions();
 };
 
-daysToggle.addEventListener("click", (e) => {
+daysToggle.addEventListener("click", () => {
   const isHidden = daysMenu.hasAttribute("hidden");
   daysMenu.toggleAttribute("hidden");
   daysToggle.setAttribute("aria-expanded", isHidden ? "true" : "false");
@@ -138,7 +138,7 @@ function adjustBackground() {
 
 window.addEventListener("resize", () => adjustBackground());
 
-unitsMenu.addEventListener("change", async (e) => {
+unitsMenu.addEventListener("change", async () => {
   temperatureUnit = unitsMenu.querySelector(
     'input[name="temperature"]:checked',
   ).value;
@@ -159,8 +159,8 @@ unitsMenu.addEventListener("change", async (e) => {
   );
 });
 
-changeUnitsButton.addEventListener("click", async (e) => {
-  let isCelsius = temperatureUnit === "celsius";
+changeUnitsButton.addEventListener("click", async () => {
+  const isCelsius = temperatureUnit === "celsius";
   let newTemperatureUnit = isCelsius ? "fahrenheit" : "celsius";
   let newWindSpeedUnit = windSpeedUnit === "kmh" ? "mph" : "kmh";
   let newPrecipitationUnit = precipitationUnit === "mm" ? "inch" : "mm";
@@ -248,8 +248,7 @@ const fetchWeatherData = async (
 ) => {
   loading.removeAttribute("hidden");
   currentWeather.classList.add("skeleton");
-  hourlyListItem.classList.add("skeleton");
-  weatherContainer.setAttribute("hidden", "");
+  hourlyList.querySelectorAll("li").forEach((item) => item.classList.add("skeleton"));
   error.setAttribute("hidden", "");
   try {
     const { latitude, longitude, results } = await fetchLocationData(location);
@@ -424,7 +423,7 @@ function displayHourlyData(hourlyData) {
     )
     .join("");
 
-  hourlyListItem.classList.remove("skeleton");
+  hourlyList.querySelectorAll("li").forEach((item) => item.classList.remove("skeleton"));
 }
 
 function daysToggleHandler(data) {

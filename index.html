@@ -34,6 +34,7 @@
           />
         </a>
         <button
+          type="button"
           class="units-toggle"
           aria-label="Units selection"
           aria-expanded="false"
@@ -53,7 +54,7 @@
           />
         </button>
         <nav class="units-menu" aria-label="Units menu" hidden>
-          <button class="changeUnits"></button>
+          <button type="button" class="changeUnits"></button>
           <fieldset>
             <legend>Temperature</legend>
             <label>
@@ -96,9 +97,11 @@
         </nav>
       </header>
       <section class="hero" aria-labelledby="hero-heading">
-        <h1 id="hero-heading">How's the sky looking today?</h1>
+        <h1 id="hero-heading" class="hero-heading">
+          How's the sky looking today?
+        </h1>
         <form class="search-form" action="#" method="get">
-          <label class="input-group" for="location-search">
+          <label class="input-group">
             <img
               src="./assets/images/icon-search.svg"
               alt="Search icon"
@@ -143,7 +146,7 @@
               <p class="date"></p>
             </div>
             <div class="temp">
-              <img src="" alt="" />
+              <img alt="" />
               <span class="value"></span>
             </div>
           </div>
@@ -188,6 +191,7 @@
           <nav aria-label="Hourly forecast navigation">
             <h2 id="hourly-forecast-heading">Hourly Forecast</h2>
             <button
+              type="button"
               class="days-toggle"
               aria-label="Days selection"
               aria-expanded="false"
